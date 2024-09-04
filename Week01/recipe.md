@@ -1,4 +1,4 @@
-## Garlic Toast
+# Garlic Toast
 
 Garlic Toast is a quick and easy snack to make. 
 
