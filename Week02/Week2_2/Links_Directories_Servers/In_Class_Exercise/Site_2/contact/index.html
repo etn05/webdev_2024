@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact Us Site 2</title>
+    <meta
+      name="description"
+      content="Method 2 - Each Page as Own Directory Folder with Index.html within"
+    />
+  </head>
+
+  <body>
+    <!-- Place your Nav Links Here -->
+    <nav>
+      <!-- use UL LI and A for Nav Links within our NAV tag -->
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about/index.html">About</a></li>
+        <li><a href="index.html">Contact</a></li>
+      </ul>
+    </nav>
+    <h1>Contact Us</h1>
+    <img src="../img/chicken3.jpeg" alt="Chicken">
+    <!-- Double Bonus - Add Contact Form Here -->
+    <form action="#" method="POST" name="sample-form" target="_self">
+      <p>You can put any HTML inside a form element, but you should stick to images and text that gives instructions about how to complete your form.
+      </p>
+      <fieldset>
+          <legend>Contact Form</legend>
+          <label for="FirstName">First Name</label>
+          <input type="text" name="FirstName" id="FirstName" placeholder="John" required/> 
+
+          <label for="LastName">Last Name</label>
+          <input type="text" name="LastName" id="LastName" placeholder="Smith" maxlength="15" />
+        
+          <br/> 
+
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" required>
+
+          <br/> 
+
+          <label for="message">Message</label>
+          <textarea name="message" cols="50" rows="10"></textarea>
+
+          <input name="submit" value="contact" type="button"/>
+
+      </fieldset>
+
+      
+
+  </body>
+</html>

@@ -1,0 +1,3 @@
+# Wireframing Article Reaction
+
+The blog post was a brief, but well-thought out piece on why wireframing is important and how to do it well. I thought it was interesting how it described wireframing and website building essentially as "problem-solving," or a website as a solution. It gave a lot of good tips on how to make something successfully in terms of getting feedback from developers, collaborating, researching, and knowing your audience well. 
