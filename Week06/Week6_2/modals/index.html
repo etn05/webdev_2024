@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Modal</title>
+    <style type="text/css">
+        a.button {
+            text-decoration: none;
+            color: white;
+            background-color: rgb(113, 133, 132);
+            padding: 1rem 2rem;
+            border-radius: 10rem;
+            margin-right: 1rem;
+        }
+
+        /* Modal Styles */
+        .overlay {
+            /* stretch the overlay div to cover the entire screen */
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            /* transparent background color */
+            background-color: rgba(0, 0, 0, 0.3);
+            /* make sure our modal shows up in front of everything else on screen */
+            z-index: 9999;
+            /* starting state opacity of 0% */
+            opacity: 0%;
+            /* we always define our transition on the starting state */
+            transition: opacity 400ms ease-in; 
+            /* our modal is there, just 0% opacity, we dont want to be able to click on anything in the invisible modal */
+            pointer-events: none;
+        }
+
+        .overlay:target {
+            opacity: 1;
+            /* re-allow all pointer events */
+            pointer-events: auto;
+        }
+
+        .overlay > div {
+            width: 300px;
+            height: 300px;
+            background-color: rgb(255, 255, 255);
+            position: relative;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        /* not styling id cuz it has weight of 100 specificity, but class only has 10 */
+       
+        .close {
+            height: 20px;
+            width: 20px;
+            background-color: rgb(255, 255, 255);
+            color: black;
+            /* position the close button on top right corner */
+            position: absolute;
+            top: 0;
+            right: 0;
+            text-align: center;
+            text-decoration: none;
+            transition: all 1s ease; 
+            border-top-right-radius: 10px;
+        }
+
+        .close:hover {
+            background-color: black;
+            color: white;
+        }
+
+        /* finish this */
+        .button_bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            padding: 2rem 1rem;
+
+        }
+
+        .scrollable {
+            overflow-y: scroll;
+            height: 220px
+        }
+
+    </style>
+  </head>
+  <body>
+    <h1>Hello Modals!</h1>
+    <a href="#info" class="button">Link to Modal 1</a>
+    <a href="#info2" class="button">Link to Modal 2</a>
+
+    <!-- Modal 1 -->
+        <!-- parent/wrapper div, it recieves the ID and will be the transparent overlay -->
+        <div id="info" class="overlay">
+            <!-- this child div is the modal box itself -->
+            <div>
+                <!-- close button, absolutely positioned to top right corner -->
+                <a href="#close" class="close">X</a>
+                <!-- you can put whatevr HTML you need to inside the modal inner div -->
+                <h2>Title of the modal</h2>
+               <div class="scrollable">
+                <p>Look at me! I am modal number 1</p>
+                <p>This modal has scrollable content</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    Why do we use it?
+                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                    Where does it come from?
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+                </div>
+            </div>
+
+        </div>
+    <!-- END MODAL 1 -->
+
+     <!-- Modal 2 -->
+        <!-- parent/wrapper div, it recieves the ID and will be the transparent overlay -->
+        <div id="info2" class="overlay">
+            <!-- this child div is the modal box itself -->
+            <div>
+              <!-- close button, absolutley positioned to top right corner -->
+              <a href="#close" class="close">X</a>
+              <!-- you can put whatever HTML elements you need to inside the modal inner div -->
+              <h2>Title of the modal 2</h2>
+              <p>Look at me! I am modal number 2</p>
+              <div class="button_bar">
+                <a href="#close" class="button">Accept</a>
+                <a href="#close" class="button">Decline</a>
+              </div>
+            </div>
+          </div>
+        
+    <!-- END MODAL 2 -->
+    </body>
+    </html>
+
