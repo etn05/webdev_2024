@@ -29,16 +29,11 @@
 
 
   <div class="top">
-    <nav>
-            <!-- <div id="nav-icon" class="nav-icon" onclick="toggleMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div> -->
-
+    <nav class="navbar">
+         
         <ul id="nav-menu" class="nav-menu">
-            <li><a href="#about">*about</a></li>
             <li><a href="#projects">*projects</a></li>
+            <li><a href="#about">*about</a></li>
             <li><a href="#contactsvg">*contact</a></li>
         </ul>
     </nav>
@@ -134,13 +129,15 @@
     // image transition JS
     window.addEventListener('scroll', function() {
         const image2 = document.getElementById('image2');
-        const scrollY = window.scrollY;
-        const windowHeight = window.innerHeight;
+        const scrollY = window.scrollY;     // get the distance scrolled from the top
+        const windowHeight = window.innerHeight; //get the height of the browser window
 
+    // calculate the opacity based on how much the page has been scrolled
         const opacity = Math.min(scrollY / (windowHeight * 0.2), 1);
         image2.style.opacity = opacity;
     });
 
+    // switch between two images when called
     function switchImage() {
         const img = document.getElementById("svg1");
         if (img.src.includes("images/projects1.svg")) {
@@ -152,18 +149,18 @@
 
 
     // scroll text animation JS
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger); //register plugin
 
-    const splitTypes = document.querySelectorAll('.greeting' );
+    const splitTypes = document.querySelectorAll('.greeting' ); //select greeting element with text
 
     splitTypes.forEach((char) => {
-        const text = new SplitType(char, { types: 'chars' });
+        const text = new SplitType(char, { types: 'chars' }); //split words in element into characters so they can be animated letter by letter
 
         gsap.from(text.chars, {
             scrollTrigger: {
                 trigger: char,
-                start: 'top 40%',
-                end: 'top 20%',
+                start: 'top 40%', //start animation 40% from top of viewport
+                end: 'top 20%', //end animation 20% from top viewport
                 scrub: 1,
                 markers: false
             },
@@ -235,7 +232,27 @@
 
     window.addEventListener('mouseleave', function() {
         console.log("Mouse left the window");
-        window.removeEventListener("mousemove", handleMousemove);  // Stop tracking
+        window.removeEventListener("mousemove", handleMousemove);  
     });
+
+    // nav bar scroll
+    let lastScrollPosition = 0; //  track last scroll position
+
+  window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.navbar'); // get navbar element
+  const currentScrollPosition = window.scrollY; // get current scroll position
+
+  if (currentScrollPosition > lastScrollPosition) {
+    // hide navbar when scroll down
+    navbar.classList.add('hidden');
+  } else {
+    // show navbar when scrolling up
+    navbar.classList.remove('hidden');
+  }
+
+  // update the last scroll position
+  lastScrollPosition = currentScrollPosition;
+});
+
 
     </script>
