@@ -1,0 +1,1 @@
+I wasn't sure how to add more JS to my midterm project (my portfolio page), so I created a simple website with a modal where you can choose an ambient study video. I wrote functions for opening and closing the window and for the YT videos to play. To include the youtube videos I imported the YT player api. 
