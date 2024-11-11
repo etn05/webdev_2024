@@ -144,7 +144,6 @@ nav li a:active {
 #project1 img:hover {
     opacity: 0.5;
     transition: opacity 0.5s;
-
 }
 
 #project2 img:active {

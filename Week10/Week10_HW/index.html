@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambient Study Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="window">
+        <button id="closeBtn">X</button>
+        <h1>Select Your Study Ambience</h1>
+        <select id="vidSelect">
+            <option value="blank">--Choose Music--</option>
+            <option value="lofi">Lofi</option>
+            <option value="jazz">Jazz</option>
+            <option value="classical">Classical</option>
+        </select>
+    </div>
+
+    <button id="reopenBtn" style="display:none;">New Setting</button>
+
+    <div id="player"></div>
+
+    <!-- YouTube API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        document.getElementById('closeBtn').addEventListener('click', closeWindow);
+        document.getElementById('reopenBtn').addEventListener('click', openWindow);
+        document.getElementById('vidSelect').addEventListener('change', changeVid);
+
+        function closeWindow() {
+            document.getElementById('window').style.display = 'none';
+            document.getElementById('reopenBtn').style.display = 'block'; 
+        }
+
+        function openWindow() {
+            document.getElementById('window').style.display = 'block';
+            document.getElementById('reopenBtn').style.display = 'none';
+        }
+
+        const vids = {
+            lofi: {
+                videoId: "n61ULEU7CO0"  
+            },
+            jazz: {
+                videoId: "MYPVQccHhAQ"
+            },
+            classical: {
+                videoId: "SllpB3W5f6s"
+            }
+        };
+
+        let player;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '100%',
+                width: '100%',
+                videoId: '',  
+                playerVars: {
+                    'autoplay': 1,
+                    'controls': 1,
+                    'showinfo': 1,
+                    'modestbranding': 1,
+                    'loop': 1,
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {}
+
+        function changeVid() {
+            const selectedVid = document.getElementById("vidSelect").value;
+
+            if (selectedVid === "blank") {
+                player.stopVideo();
+                document.getElementById('player').style.display = 'none';
+                document.body.style.backgroundColor = 'white'; 
+            } else if (vids[selectedVid]) {
+                const videoId = vids[selectedVid].videoId;
+                player.loadVideoById(videoId);
+                document.getElementById('player').style.display = 'block';            }
+        }
+    </script>
+</body>
+</html>

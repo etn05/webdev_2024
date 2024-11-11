@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html land="en"></html>
+<head>
+<meta name="viewport" cotent="width=device-width, initial-scale=1"/>
+<title>Tip Calculator </title>
+<style>
+    .container {
+        width: 300px;
+        margin: 0 auto;
+        /* if line height matches input neight, text on your label will align with the center of the input tags */
+        line-height: 40px;
+        margin-top: 5%;
+        border: 1px solid gray;
+        border-radius: 10px; 
+        padding: 20px;
+    }
+
+    .well {
+        border-radius: 10px;
+        background-color: #ddd;
+        min-height: 100px;
+        padding: 20px;
+    }
+
+    .container button {
+        width: 100%;
+        padding: 10px 0;
+        border: 2px solid grey;
+        cursor: pointer;
+        margin: 10px 0;
+        color: white;
+        background-color: #333;
+        transition: background-color 1s ease ;
+    }
+
+    .container button:hover {
+        background-color: #777;
+    }
+
+    /* attribute selector, only grabs inputs where the type===number, worth 10 specificity points */
+    input[type='number']{
+        width: 100%;
+        padding: 10px 0;
+        border: 1px solid grey;
+        border-radius: 5;
+        text-align: center;
+        font-size: 24px;
+    }
+</style>
+<script>
+    //DOM content loaded event listener
+    document.addEventListener('DOMContentLoaded', () => {
+        //assign global element vars here
+        // add event listeners here
+        // anything that needs to get an element by ID immediately
+        // or any function you want to fire on load
+        document.getElementById('calcBtn').addEventListener('click',calcTip)
+    })
+
+    const calcTip = (event) => {
+        // stop the page from reloading (browser default behavior), and clearing our form onSubmit
+        event.preventDefault()
+
+        // grab our output div and store it as a var for later
+        var result = document.getElementById('tipResult')
+
+        //grab the value from our bill input
+        const bill = document.getElementById('bill')
+        // dont forget input values come in as strings always
+        let bill = parseFloat(bill)
+
+        //declare a few vars for our calculations later
+        let per //what the user picked in the radio group
+        let tip // bill * per
+        let total // bill+tip
+
+        //find the selected tip percentage from our List of radio buttons
+        const arrTip = document.getElementsByName('tip')
+        console.log(arrTip)
+
+        //loop through all of the radio inputs in our list and find the element with checked = true
+        for (var i=0; i < arrTip.length; i++) {
+            if(arrTip[i].checked) {
+                per = arrTip[i].value
+                // once we find the checked value, we can exit our loops early, because theres no point
+                break
+            }
+        }
+
+        // calc tip
+        tip = bill * per
+        console.log('tip', tip)
+    }
+
+    const moneyRound = (num) => {
+        trturn
+    }
+</script>
+<body>
+    <div class="container">
+        <h1>Tip Calculator</h1>
+        <form>
+            <label for="bill">What is your total bill?</label>
+            <input name="bill" id="bill" type="number" min="0" step="0.01" required />
+
+            <br>
+            <!-- Radio Group, 1 only pickable, they share the same name but have different values -->
+
+            <label>
+                <input type="radio" name="tip" value="0.05"/>5%</label> 
+
+            <label>   <input type="radio" name="tip" value="0.15"/>15%</label>
+            <label>  <input type="radio" name="tip" value="0.20"/>20%</label>
+             <label>  <input type="radio" name="tip" value="0.25"/>25%</label>
+
+                <br />
+                <button type="submit" id="calcBtn">Calculate Tip</button>
+
+                <div class="well" id="tipResult"></div>
+        </form>
+    </div>
+</body>
