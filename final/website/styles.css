@@ -1,0 +1,612 @@
+/* Global styles and resets */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    scroll-behavior: smooth;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* first div styling */
+.top {
+    width: 100%;
+    position: relative;
+    height: 100vh; 
+}
+
+.top p {
+    font-weight: 800;
+}
+
+/* navigation styling */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+ 
+nav ul {
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+nav li {
+    font-size: 1.7em;
+    font-weight: 500;
+    list-style-type: none;
+    margin-left: 3%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding-right: 20%;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: rgb(243, 62, 62);
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: black; 
+}
+.navbar-nav .nav-item .nav-link:active {
+    color: black;
+}
+
+/* image styling */
+.image_container {
+    position: relative;
+    width: 60%;
+    height: 100%;
+    margin: auto;
+}
+
+#image1, #image2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: auto; 
+    max-height: 100%; 
+    object-fit: cover;
+}
+
+#image2 {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+/* greeting styling */
+.greeting {
+    font-size: 75px;
+    margin: 10%;
+    padding-bottom: 20%;
+}
+/* projects styling */
+
+#projects {
+    padding: 0% 5% 5% 5%;
+}
+
+#svg1 {
+    width: 60%;
+    height: auto;
+}
+#projects_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    gap: 2%; 
+    padding: 2%;
+    flex-direction: row;
+    border: 1px solid black;
+    margin-top: 2%;
+}
+
+#project1, #project2 {
+    width: 48%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+#project1 img, #project2 img {
+    width: 100%; 
+    height: auto;
+    margin-top: 2%;
+    /* border: 1px solid black; */
+    padding: 1%;
+}
+#project2 img:hover {
+    opacity: 0.5;
+    transition: opacity 0.5s;
+}
+
+#project1 img:hover {
+    opacity: 0.5;
+    transition: opacity 0.5s;
+}
+
+#project2 img:active {
+    opacity: 1;
+}
+
+#project1 img:active {
+    opacity: 1;
+}
+
+#project1 h2, #project2 h2 {
+    font-weight: 500;
+    font-size: 1.3em;
+    padding-bottom: 2%;
+    margin-top: 2%;
+}
+
+#project1 p, #project2 p {
+    font-size: 1em;
+    text-align: center;
+}
+
+
+#button {
+    margin: 2% 40% 0 40%;
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    border: 1px solid black;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 1.2em;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+#button a {
+    color: black; 
+    text-decoration: none; 
+    transition: color 0.3s ease; 
+}
+
+#button:hover {
+    border-color: rgb(254, 26, 26); 
+}
+
+#button:hover a {
+    color: rgb(254, 26, 26); 
+}
+
+/* about style */
+
+/* experimental css animation only works on chrome*/
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#about {
+    animation: appear linear; 
+    animation-timeline: view();
+    animation-range: entry 0;
+
+    background-color: rgb(30, 30, 30);
+    color: white;
+    font-size: 2.2em;
+    font-weight: 300;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#svg {
+    position: absolute;
+    z-index: 999; 
+    width: 20% !important;
+    transition: transform 2s ease-in-out;
+}
+
+#svg:hover {
+    transform: rotateY(0.5turn);
+    animation-duration: 1s;
+}
+#about img {
+    width: 25%;                  
+    height: auto;  
+    margin: 10% 5%;        
+    border-radius: 10px;    
+    object-fit: contain;  
+}
+
+#about p {
+    flex: 1;
+    padding: 2%;
+    margin: 0 5% 0 0;
+}
+
+#p_bottom {
+    margin-bottom: 5% !important;
+}
+
+/* contact */
+
+#contact {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+#contactsvg {
+    width: 50%;
+    padding: 2% 0 5% 2%;
+}
+
+#contact h1 {
+    font-size: 5em;
+    color: rgb(243, 62, 62);
+    padding-bottom: 10%;
+    padding-left: 5%;
+}
+
+#contact p {
+    font-size: 2.7em;
+    text-align: center;
+    padding: 2%;
+}
+
+#contact a:link {
+    color: black;
+}
+
+#contact a:hover {
+    color: rgb(243, 62, 62);
+}
+
+#contact a:active {
+    color: rgb(0, 0, 0);
+}
+
+.icon_buttons {
+    display: flex;                   
+    justify-content: center;   
+    align-items: center;          
+    width: 80%;
+    margin: 0 auto;             
+}
+
+.icon_buttons img {
+    width: 50px;                    
+    margin: 0 10px;                 
+}
+
+.icon_buttons img:hover {
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.icon_buttons img:active {
+    opacity: 1;
+}
+
+#etnlogo {
+    width: 20%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px; 
+}
+
+/* cursor */
+.circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgba(255, 67, 67, 0.5);
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999; }
+
+
+/* responsive styles */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    nav li {
+        margin-left: 0;
+        padding-right: 0;
+        font-size: 1.2em;
+    }
+
+    .top {
+        width: 100%;
+        position: relative;
+    }
+
+    .image_container {
+        position: relative;
+        width: 60%;
+        height: 100%;
+        margin-top: 20%;
+    }
+    
+    .greeting {
+        height: 50vh;
+        font-size: 2.1em;
+        padding-bottom: 2%;
+    }
+
+    #svg1 {
+        width: 100%;
+    }
+    
+    #projects {
+        padding: 0% 5% 5% 5%;
+    }
+
+    #svg1 {
+        width: 100%;
+        height: auto;
+    }
+    #projects_container {
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+        flex-wrap: wrap; 
+        gap: 10%; 
+        padding: 2%; 
+        border: 1px solid rgb(255, 255, 255);
+        flex-direction: column;
+    }
+
+    #project1, #project2 {
+        width: 100%; 
+        margin: 0;
+        display: flex;
+        align-items: center; 
+    }
+
+    #project1 img, #project2 img {
+        width: 100%; 
+        height: auto;
+        margin-top: 2%;
+        padding: 0 20% 0 20%;
+    }
+
+
+    #project1 h2, #project2 h2 {
+        font-weight: 500;
+        font-size: 1em;
+        padding-bottom: 1%;
+        margin-top: 2%;
+    }
+
+    #project1 p, #project2 p {
+        font-size: 0.8em;
+        text-align: center;
+        padding-bottom: 1%;
+    }
+
+
+        #button {
+            margin: 2% auto; 
+            width: 40%;
+            font-size: 1em;
+        }
+
+        #svg {
+            visibility: hidden;
+        }
+        #about {
+            flex-direction: column; 
+            align-items: center;
+        }
+
+        #about img {
+            width: 40%; 
+            margin: 5% auto;
+        }
+
+        #about p {
+            padding: 2%;
+            font-size: 60%;
+        }
+
+        #contact h1 {
+            font-size: 3em;
+        }
+
+        #contact p {
+            padding-top: 15%;
+            font-size: 1.8em; 
+        }
+
+        #contactsvg {
+            width: 80%;
+        }
+
+        #etnlogo {
+            width: 40%; 
+        }
+
+        iframe {
+            width: 100%; 
+            height: auto;
+            border: none; 
+            aspect-ratio: 16 / 9; 
+        }
+
+        .LFWF iframe, .finalproto iframe, .SLFWF iframe, .SHFWF iframe {
+            width: 100%; 
+            height: auto;
+            max-height: 50vh; 
+        }
+}
+
+/* project 1 styling */
+
+body.project1, body.project2 {
+    margin: 10px;
+}
+
+#home:link #home:active {
+    color: black;
+}
+
+#home {
+    position: fixed;
+    margin: 0px 0px 0px 20px;
+}
+
+.project1 h1, h2, .project2 h1, h2 {
+    text-align: center;
+    margin: 30px;
+}
+
+.p1intro p {
+    font-size: 1.3em;
+    text-align: center;
+}
+
+.p1intro img {
+    width: 60%;
+    margin: 16px auto;
+    display: block;
+}
+
+.project1 p, ul, .project2 p, ul {
+    margin: 2% 10% 0% 10%;
+    line-height: 1.4;
+}
+
+#compmapimg {
+    width: 50%;
+    height: auto;
+    position: relative;
+    margin: 16px auto;
+    overflow: hidden; 
+    transition: transform 0.5s ease-out; 
+    transform: scale(1);
+    transform-origin: center center; 
+}
+
+
+.carousel-inner img {
+    max-height: 500px;
+    object-fit: contain; 
+  }
+
+
+.UP img {
+    width: 80%;
+    margin: auto;
+    display: block; 
+}
+
+
+.compmap, .LFWF, .problemintro, .proposedsolution, .UP, .after, .finalproto, .somu1, .Sintro, .Sstatement, .Suserflow, .SLFWF, .SHFWF {
+    margin: 4%;
+}
+
+.LFWF iframe, .finalproto iframe, .SLFWF iframe, .SHFWF iframe {
+    margin: auto;
+    display: block;
+}
+.userflow {
+    margin: 5%;
+}
+#ufcchart {
+    width: 70%;
+    height: auto;
+    position: relative;
+    margin: 16px auto;
+    overflow: hidden; 
+    transition: transform 0.3s ease-out; 
+    transform: scale(1); 
+    transform-origin: center center; 
+}
+
+#compmapimg img, #ufcchart img {
+    transition: transform 0.5s ease;
+}
+
+#compmapimg.zoomed img, #ufcchart.zoomed img {
+    transform: scale(4); 
+}
+
+/* project 2 styling */
+
+.project2 h1, h2 {
+    text-align: center;
+    margin: 30px;
+}
+
+.somu1 img {
+    width: 10%;
+    margin: auto;
+    display: block;
+}
+
+.scroll-container {
+    display: flex; 
+    overflow-x: auto; 
+    white-space: nowrap; 
+    padding: 10px; 
+}
+
+.scroll-container img {
+    flex-shrink: 0; 
+    width: 400px;
+    height: 200px; 
+    height: auto;
+}
+
+.Suserflow {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin: 16px auto;
+    overflow: hidden; 
+    transition: transform 0.3s ease-out;
+    transform: scale(1); 
+    transform-origin: center center; 
+}
+
+.Suserflow img {
+    transition: transform 0.5s ease;
+}
+
+.Suserflow.zoomed img {
+    transform: scale(5); 
+}
+
+.char {
+    transform: translateY(-115px);
+    transition: transform .5s;
+}
+
+#Sreveal h1 {
+    clip-path: polygon(0  0, 100% 0, 100% 100%, 0% 100%);
+}
+
+

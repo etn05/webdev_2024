@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Venmo Fundraising</title>
+
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="project2">
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <a href="../index.html" aria-label="Home">
+                <svg id="home" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-house-fill" viewBox="0 0 16 16">
+                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
+                    <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z"/>
+                </svg>
+            </a>         
+
+            <div class="somu1">
+                <h1 id="Sreveal">SoMu</h1>
+                <img src="../images/SMlogo.png" alt="SoMu Logo">
+                
+                <div class="scroll-container">
+                    <img src="../images/somugallery/gal1.png" alt="Image 1">
+                    <img src="../images/somugallery/gal2.png" alt="Image 2">
+                    <img src="../images/somugallery/gal3.png" alt="Image 3">
+                    <img src="../images/somugallery/gal4.png" alt="Image 4">
+                </div>
+                
+                <div class="Sintro">
+                    <h2>Introduction</h2>
+                    <p class="reveal">SoMu is a Social Music app designed for music enthusiasts to connect through their favorite artists and genres, share song recommendations, and track personalized listening stats year-round. Users can join communities and engage with others in a space dedicated to music discovery and conversation.</p>
+                </div>
+
+                <div class="Sstatement">
+                    <h2>Problem Statements</h2>
+                    <p class="reveal">Having a hard time finding new music? Love Spotify, but want to be able to comment on songs and playlists? Want to make new friends who like the same music as you? Tired of waiting for your yearly music recap and want real-time stats instead?</p>
+                    <p class="reveal">Many music lovers struggle to discover new tracks, connect with others who share their tastes, or find spaces to have discussions about the songs they love. While platforms like Spotify offer great music discovery features, they lack the social interaction that allows users to comment on songs and playlists, form communities, and make new connections.</p>
+                    <p class="reveal">And sure, you can sift through endless twitter threads and reddit forums to find someone who’s listening to the same indie band as you, or that 2015 Lana Del Rey song, but wouldn’t you rather have it all in one app? SoMu offers that with its integrated platform, allowing users to not only discover new music but also engage directly with others who share their unique taste. Whether you're into niche indie bands or throwback hits, SoMu brings fans together in one place where you can comment on playlists, share song recommendations, and join genre/artist-specific communities.</p>
+                    <p class="reveal">Everyone loves posting their yearly-wrapped music stats, we see 100s of posts on that one day in December of everyone posting their top artist for the year, but with that, users are limited to waiting all year to see their music stats, leaving them without real-time insights into their listening habits. SoMu addresses these gaps by combining music discovery with a dynamic social experience and year-round personalized stats.</p>
+                </div>
+
+                <h2>User Flow</h2>
+                <div class="Suserflow">
+                    <img src="../images/userflow.png" alt="User Flow Diagram">
+                </div>
+
+                <div class="SLFWF">
+                    <h2>Low-Fidelity Wireframes</h2>
+                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/o7mexlzrYjUmSN2eJ4ffRP/SoMu?node-id=0-1&embed-host=share" allowfullscreen></iframe>
+                </div>
+
+                <div class="SHFWF">
+                    <h2>High-Fidelity Wireframes</h2>
+                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/o7mexlzrYjUmSN2eJ4ffRP/SoMu?node-id=105-38&embed-host=share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- js imports for scroll animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>  
+    
+    <script>
+        // smooth scrolling
+
+        gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+        ScrollSmoother.create({
+            smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
+            effects: true, // looks for data-speed and data-lag attributes on elements
+            smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
+        });
+    </script>
+
+    <script>
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const myText = new SplitType('#Sreveal')
+
+    gsap.to('.char',
+    {
+       y: 0,
+       stagger: 0.05,
+       delay: 0.2,
+       duration: 0.2,
+    })
+
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const userFlowZoom = document.querySelector(".Suserflow");
+            const img = userFlowZoom.querySelector("img");
+
+            userFlowZoom.addEventListener("mousemove", (event) => {
+                const bounds = userFlowZoom.getBoundingClientRect();
+                const offsetX = event.clientX - bounds.left;
+                const offsetY = event.clientY - bounds.top;
+
+                const percentX = (offsetX / bounds.width) * 100;
+                const percentY = (offsetY / bounds.height) * 100;
+
+                img.style.transformOrigin = `${percentX}% ${percentY}%`;
+
+                userFlowZoom.classList.add("zoomed");
+            });
+
+            userFlowZoom.addEventListener("mouseleave", () => {
+                userFlowZoom.classList.remove("zoomed");
+            });
+        });
+    </script>
+</body>
+</html>
