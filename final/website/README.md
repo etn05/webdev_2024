@@ -19,7 +19,9 @@ Built off of midterm portfolio website
 
 ### GSAP Uses
 - split type in index
+- project title text animation
 - smooth scrolling
+- scrolling progress bar
 
 ### Java Uses
 - image zoom on hover

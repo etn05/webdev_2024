@@ -324,6 +324,7 @@ nav li {
     pointer-events: none;
     z-index: 9999; }
 
+    
 
 /* responsive styles */
 @media (max-width: 768px) {
@@ -461,13 +462,57 @@ nav li {
             height: auto;
             max-height: 50vh; 
         }
+
+        .circle {
+            display: none;
+        }
 }
 
 /* project 1 styling */
 
+progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 15px;
+  border: none;
+  background: transparent;
+  z-index: 999;
+}
+progress::-webkit-progress-bar {
+  background: transparent;
+}
+progress::-webkit-progress-value {
+  background:  rgb(243, 62, 62);
+  background-attachment: fixed;
+}
+progress::-moz-progress-bar {
+  background:  rgb(243, 62, 62);
+  background-attachment: fixed;
+}
+
+
 body.project1, body.project2 {
     margin: 10px;
 }
+
+body.project2 {
+        overscroll-behavior: none;
+        height: 100vh;
+}
+
+  
+.pics {
+    overscroll-behavior: none;
+    width: 600%;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
 
 #home:link #home:active {
     color: black;
@@ -476,6 +521,15 @@ body.project1, body.project2 {
 #home {
     position: fixed;
     margin: 0px 0px 0px 20px;
+}
+
+#home:hover {
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+#home:active {
+    opacity: 1;
 }
 
 .project1 h1, h2, .project2 h1, h2 {

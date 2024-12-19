@@ -28,7 +28,6 @@
     <div class="circle"></div>
     <div class="circle"></div>
 
-
   <div class="top">
   
     <nav class="navbar navbar-expand-lg bs-body-bg-rgb fixed-top">
@@ -163,29 +162,6 @@
         }
     }
 
-
-    // scroll text animation JS
-    gsap.registerPlugin(ScrollTrigger); //register plugin
-
-    const splitTypes = document.querySelectorAll('.greeting' ); //select greeting element with text
-
-    splitTypes.forEach((char) => {
-        const text = new SplitType(char, { types: 'chars' }); //split words in element into characters so they can be animated letter by letter
-
-        gsap.from(text.chars, {
-            scrollTrigger: {
-                trigger: char,
-                start: 'top 40%', //start animation 40% from top of viewport
-                end: 'top 20%', //end animation 20% from top viewport
-                scrub: 1,
-                markers: false
-            },
-            opacity: 0.2,
-            stagger: 0.1,
-            duration: 1
-        });
-    });
-
     // contact flash
     const contactSvg = document.getElementById('contactsvg');
     const images = ['images/contact-01.svg', 'images/contact-02.svg'];
@@ -277,6 +253,24 @@
 
     lastScrollPosition = currentScrollPosition;
   });
+  
+  // text animation
+  const splitTypes = document.querySelectorAll('.greeting p');
+  splitTypes.forEach((char) => {
+    const text = new SplitType(char, { types: 'words' }); 
+    gsap.from(text.words, {
+        scrollTrigger: {
+            trigger: char,
+            start: 'top 50%',
+            end: 'top 20%',
+            scrub: 1,
+            markers: false
+        },
+        opacity: 0.2,
+        stagger: 0.1,
+        duration: 1.3
+    });
+});
 
 
 
